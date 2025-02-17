@@ -1,0 +1,55 @@
+/* Reset default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Import Bootstrap after reset */
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
+/* Tailwind directives */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #3182ce;
+  --secondary: #4a5568;
+  --accent: #ed8936;
+  --background: #f7fafc;
+  --text: #2d3748;
+}
+
+@layer base {
+  body {
+    @apply bg-[var(--background)] text-[var(--text)] antialiased;
+    font-family: system-ui, -apple-system, sans-serif;
+  }
+}
+
+@layer components {
+  .page-section {
+    @apply py-12 px-4 sm:px-6 lg:px-8;
+  }
+
+  .container-fluid {
+    @apply max-w-7xl mx-auto;
+  }
+
+  .heading-large {
+    @apply text-4xl font-bold tracking-tight sm:text-5xl;
+  }
+
+  .btn-custom {
+    @apply inline-flex items-center px-6 py-3 rounded-lg font-semibold transition-all duration-300;
+  }
+
+  .btn-primary {
+    @apply btn-custom bg-[var(--primary)] text-white hover:bg-opacity-90;
+  }
+
+  .form-control {
+    @apply w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[var(--primary)] focus:border-transparent;
+  }
+}
