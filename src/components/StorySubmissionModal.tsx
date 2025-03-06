@@ -1,5 +1,6 @@
 import React from 'react';
 import { X } from 'lucide-react';
+import type { Story } from '../types/Story';
 
 interface StorySubmissionModalProps {
   isOpen: boolean;

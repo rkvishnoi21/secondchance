@@ -1,3 +1,5 @@
+export type StoryCategory = 'recovery' | 'inspiration' | 'family' | 'all';
+
 export interface Story {
   id: string;
   title: string;
@@ -5,7 +7,8 @@ export interface Story {
   author: string;
   date: string;
   readTime: number;
-  image?: string;
+  category: StoryCategory;
   excerpt: string;
   tags?: string[];
+  image?: string;
 }

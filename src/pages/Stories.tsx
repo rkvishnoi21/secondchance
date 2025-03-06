@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
-import { Calendar, Clock, Share2, ChevronRight, Search, Filter } from 'lucide-react';
+import { useState } from 'react';
+import { Calendar, Clock, Share2, ChevronRight, Search } from 'lucide-react';
 import { format } from 'date-fns';
 import { useStories } from '../context/StoryContext';
+import type { Story, StoryCategory } from '../types/Story';  // Add this import
 import StorySubmissionModal from '../components/StorySubmissionModal';
 import type { StorySubmissionData } from '../components/StorySubmissionModal';
 import { useNavigate } from 'react-router-dom';
+import { trackConversion } from '../utils/gtag';
 
 const Stories = () => {
   const navigate = useNavigate();
@@ -28,7 +30,7 @@ const Stories = () => {
   });
 
   const handleStorySubmit = (data: StorySubmissionData) => {
-    const newStory = {
+    const newStory: Story = {
       id: `story-${Date.now()}`,
       title: data.title,
       content: data.story,
@@ -36,12 +38,16 @@ const Stories = () => {
       date: new Date().toISOString(),
       readTime: Math.ceil(data.story.split(' ').length / 200), // Approximate reading time
       excerpt: data.story.slice(0, 150) + '...',
+      category: 'recovery' as StoryCategory, // Fix the category type
       tags: ['Recovery Story', 'Personal Experience']
     };
 
     addStory(newStory);
     alert('Thank you for sharing your story! It has been added to our collection.');
     setIsModalOpen(false);
+
+    // Track story submission
+    trackConversion('story_submit');
   };
 
   const handleReadMore = (index: number) => {

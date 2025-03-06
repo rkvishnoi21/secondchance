@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Phone, Heart } from 'lucide-react';
+import { Menu, X, Heart } from 'lucide-react';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -74,20 +74,6 @@ const Header = () => {
                 {link.label}
               </Link>
             ))}
-            
-            {/* Enhanced CTA Button */}
-            <a 
-              href="tel:+1234567890"
-              className={`ml-4 px-6 py-2 rounded-lg flex items-center transition-all duration-300
-                hover:scale-105 hover:shadow-lg ${
-                isScrolled
-                  ? 'bg-blue-600 text-white hover:bg-blue-700'
-                  : 'bg-white text-blue-600 hover:bg-blue-50'
-              }`}
-            >
-              <Phone className="w-4 h-4 mr-2" />
-              <span className="font-semibold">Get Help</span>
-            </a>
           </div>
 
           {/* Enhanced Mobile Menu Button */}
@@ -128,14 +114,6 @@ const Header = () => {
                 {link.label}
               </Link>
             ))}
-            <a 
-              href="tel:+1234567890"
-              className="block px-6 py-4 text-base font-medium text-blue-600 hover:bg-blue-50 active:bg-blue-100"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              <Phone className="w-4 h-4 inline-block mr-2" />
-              Get Help Now
-            </a>
           </div>
         </div>
       </nav>

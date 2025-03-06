@@ -1,6 +1,5 @@
-import React, { Suspense } from 'react';
+import { Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import Header from './components/Header';
 import Home from './pages/Home';
 import About from './pages/About';
 import Contact from './pages/Contact';
@@ -13,10 +12,12 @@ import { StoryProvider } from './context/StoryContext';
 import Blog from './pages/Blog';
 import { BlogProvider } from './context/BlogContext';
 import BlogPost from './pages/BlogPost';
+import GtagRouteTracker from './components/GtagRouteTracker';
 
 function App() {
   return (
     <Suspense fallback={<div>Loading...</div>}>
+      <GtagRouteTracker />
       <StoryProvider>
         <BlogProvider>
           <div className="min-h-screen flex flex-col">

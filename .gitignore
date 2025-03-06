@@ -38,3 +38,9 @@ build
 *.sw?
 
 .vercel
+
+# Temporarily ignored components and pages
+src/components/Popup.tsx
+src/pages/Fantasy.tsx
+
+.vercel

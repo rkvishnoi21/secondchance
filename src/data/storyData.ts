@@ -1,4 +1,4 @@
-import { Story } from '../types/Story';
+import { Story, StoryCategory } from '../types/Story';
 
 export const storyData: Story[] = [
   // Your story entries go here
@@ -9,7 +9,7 @@ export const storyData: Story[] = [
     author: "John Doe",
     date: "2024-02-10",
     readTime: 5,
-    category: "Recovery",
+    category: "recovery", // lowercase to match StoryCategory type
     excerpt: "A personal story of triumph...",
     tags: ["Recovery", "Hope", "Support"]
   },
